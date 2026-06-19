@@ -147,6 +147,38 @@ Vercel automatically rebuilds and updates the live site. No manual steps.
 
 ---
 
+## Part 4.6 — Admin login & admin subdomain
+
+### Admin account (already created)
+An admin account is ready to use:
+
+| Field | Value |
+|-------|-------|
+| Email | `admin@gmail.com` |
+| Password | `admin1234` |
+
+Log in at `/login`, then open `/admin` to manage everything (queries, gallery, events).
+**Change this password soon:** Supabase → **Authentication → Users** → click the user → reset password.
+
+> Why not `1234`? Supabase enforces a 6-character minimum, so `admin1234` is used.
+
+### Make `admin.yourdomain.com` open the admin panel
+The code already routes any **`admin.`** subdomain straight to the admin panel. To enable it you
+need a custom domain (the free `*.vercel.app` URL can't have custom subdomains):
+
+1. Buy a domain (e.g. from Namecheap/GoDaddy) — or use one you own.
+2. In Vercel → your project → **Settings → Domains**, add **both**:
+   - `yourdomain.com` (the main site)
+   - `admin.yourdomain.com` (the admin entrance)
+   Vercel shows the DNS records to add at your domain registrar. Add them and wait for verification.
+3. Done. `https://admin.yourdomain.com` now lands on the admin login → panel, while
+   `https://yourdomain.com` shows the normal website.
+
+**Test it locally:** the same logic works at <http://admin.localhost:3000> (most browsers resolve
+`*.localhost` automatically) while the public site stays at <http://localhost:3000>.
+
+---
+
 ## Part 5 — (Optional) Email notifications for new inquiries
 
 Get an email whenever a student submits a query or downloads the brochure.

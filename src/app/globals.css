@@ -1,43 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #eefdf6;
-  --color-brand-100: #d6f9e8;
-  --color-brand-200: #b0f1d4;
-  --color-brand-300: #79e3bb;
-  --color-brand-400: #3fcd9c;
-  --color-brand-500: #15b182;
-  --color-brand-600: #0a8f6a;
-  --color-brand-700: #0a7257;
-  --color-brand-800: #0c5a47;
-  --color-brand-900: #0c4a3c;
-  --color-brand-950: #042a23;
+  /* Primary = violet/indigo (the template accent) */
+  --color-brand-50: #f1edff;
+  --color-brand-100: #e6dcff;
+  --color-brand-200: #cfbcff;
+  --color-brand-300: #ad8eff;
+  --color-brand-400: #8c64ff;
+  --color-brand-500: #7245ff;
+  --color-brand-600: #5b34f5;
+  --color-brand-700: #4a27d4;
+  --color-brand-800: #3b1fa6;
+  --color-brand-900: #2f1980;
+  --color-brand-950: #1d0f52;
 
-  --color-ink-50: #f5f7f9;
-  --color-ink-100: #e9eef2;
-  --color-ink-200: #cbd6df;
-  --color-ink-300: #9fb2c2;
-  --color-ink-400: #6c889e;
-  --color-ink-500: #4e6b82;
-  --color-ink-600: #3d5568;
-  --color-ink-700: #334456;
-  --color-ink-800: #2d3a48;
-  --color-ink-900: #1b2530;
-  --color-ink-950: #0f1620;
+  /* Ink = deep navy for headings + slate for body */
+  --color-ink-50: #f6f7fb;
+  --color-ink-100: #eceef6;
+  --color-ink-200: #d8dbeb;
+  --color-ink-300: #b3b8d4;
+  --color-ink-400: #8085b0;
+  --color-ink-500: #5b6090;
+  --color-ink-600: #434873;
+  --color-ink-700: #313459;
+  --color-ink-800: #20224a;
+  --color-ink-900: #161538;
+  --color-ink-950: #0c0c26;
 
-  --color-gold-400: #f5c451;
-  --color-gold-500: #eab308;
-  --color-gold-600: #ca9a04;
+  /* Soft pastel accents used on icon chips / blobs */
+  --color-mint: #18b58a;
+  --color-mint-bg: #d9f7ed;
+  --color-peach: #ff7a59;
+  --color-peach-bg: #ffe6dc;
+  --color-sky: #2f9bff;
+  --color-sky-bg: #dcefff;
+  --color-gold-400: #ffd25e;
+  --color-gold-500: #f6b73c;
+  --color-gold-600: #d9991f;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 4px 24px -8px rgb(12 74 60 / 0.18);
-  --shadow-card: 0 10px 40px -12px rgb(15 22 32 / 0.15);
+  --shadow-soft: 0 10px 30px -12px rgb(91 52 245 / 0.18);
+  --shadow-card: 0 18px 50px -20px rgb(22 21 56 / 0.18);
+  --shadow-float: 0 12px 30px -10px rgb(22 21 56 / 0.20);
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #0f1620;
+  --foreground: #161538;
 }
 
 * {
@@ -55,7 +65,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Reusable utility patterns */
+/* ---------- Layout ---------- */
 .container-x {
   width: 100%;
   margin-inline: auto;
@@ -66,15 +76,16 @@ body {
   .container-x { padding-inline: 2rem; }
 }
 
+/* ---------- Buttons (pill style) ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 0.75rem;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.75rem 1.4rem;
+  padding: 0.7rem 1.5rem;
   transition: all 0.18s ease;
   white-space: nowrap;
   cursor: pointer;
@@ -91,22 +102,23 @@ body {
 }
 .btn-gold:hover { background: var(--color-gold-400); transform: translateY(-1px); }
 .btn-outline {
-  background: transparent;
+  background: white;
   color: var(--color-brand-700);
   border: 1.5px solid var(--color-brand-200);
 }
-.btn-outline:hover { background: var(--color-brand-50); }
+.btn-outline:hover { background: var(--color-brand-50); border-color: var(--color-brand-300); }
 .btn-ghost-white {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.14);
   color: white;
-  border: 1.5px solid rgba(255,255,255,0.3);
+  border: 1.5px solid rgba(255,255,255,0.35);
   backdrop-filter: blur(4px);
 }
-.btn-ghost-white:hover { background: rgba(255,255,255,0.22); }
+.btn-ghost-white:hover { background: rgba(255,255,255,0.24); }
 
+/* ---------- Cards ---------- */
 .card {
   background: white;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   border: 1px solid var(--color-ink-100);
   box-shadow: var(--shadow-card);
 }
@@ -115,30 +127,72 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-brand-600);
   background: var(--color-brand-50);
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
 }
 
+/* ---------- Backgrounds & decoration ---------- */
+.soft-section {
+  background: linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+}
+
+/* violet gradient kept for auth + 404 */
 .hero-gradient {
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(63,205,156,0.25), transparent 60%),
-    radial-gradient(900px 500px at 0% 20%, rgba(10,143,106,0.20), transparent 55%),
-    linear-gradient(160deg, #042a23 0%, #0a5a47 55%, #0a7257 100%);
+    radial-gradient(900px 500px at 85% -10%, rgba(140,100,255,0.45), transparent 60%),
+    radial-gradient(700px 500px at 0% 30%, rgba(91,52,245,0.35), transparent 55%),
+    linear-gradient(160deg, #2f1980 0%, #4a27d4 55%, #5b34f5 100%);
+}
+
+/* light page header (study-abroad / countries / etc.) */
+.page-header-soft {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(600px 320px at 90% -20%, rgba(140,100,255,0.18), transparent 60%),
+    radial-gradient(500px 300px at -5% 10%, rgba(24,181,138,0.12), transparent 55%),
+    linear-gradient(180deg, #f6f4ff 0%, #ffffff 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dotgrid {
+  background-image: radial-gradient(currentColor 1.4px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+
+.float-badge {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--color-ink-100);
 }
 
 .text-balance { text-wrap: balance; }
 
 @keyframes float-y {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
-.animate-float { animation: float-y 5s ease-in-out infinite; }
+.animate-float { animation: float-y 6s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 40s linear infinite; }
 
 /* Scrollbar polish */
 ::-webkit-scrollbar { width: 10px; height: 10px; }

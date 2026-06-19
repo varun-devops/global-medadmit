@@ -1,46 +1,66 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, ShieldCheck, GraduationCap, Globe2, Award } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
-import { contactInfo } from "@/lib/data";
-import BrochureModal from "@/components/BrochureModal";
+import { countries } from "@/lib/data";
 
-const stats = [
-  { key: "stat1", value: "13+", icon: Award },
-  { key: "stat2", value: "2,500+", icon: GraduationCap },
-  { key: "stat3", value: "30+", icon: ShieldCheck },
-  { key: "stat4", value: "9", icon: Globe2 },
-] as const;
+const flagBubbles = [
+  { flag: "🇺🇸", cls: "left-2 top-16 md:left-0 md:top-20", delay: 0 },
+  { flag: "🇬🇧", cls: "right-3 top-10 md:right-2 md:top-12", delay: 0.4 },
+  { flag: "🇩🇪", cls: "left-1/2 -top-2 -translate-x-1/2", delay: 0.8 },
+  { flag: "🇮🇳", cls: "left-0 bottom-28 md:-left-4", delay: 1.2 },
+  { flag: "🇦🇺", cls: "left-6 bottom-6 md:left-2 md:bottom-2", delay: 1.6 },
+  { flag: "🇨🇦", cls: "right-2 bottom-2", delay: 2.0 },
+  { flag: "🇷🇺", cls: "right-0 top-1/2 md:-right-3", delay: 2.4 },
+];
+
+const avatars = [
+  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&q=80",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80",
+  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80",
+];
 
 export default function Hero() {
   const { t } = useLang();
+  const router = useRouter();
+  const [country, setCountry] = useState("");
+
+  function onSearch(e: React.FormEvent) {
+    e.preventDefault();
+    router.push("/universities");
+  }
 
   return (
-    <section className="hero-gradient relative overflow-hidden text-white">
+    <section className="relative overflow-hidden bg-white">
       {/* decorative blobs */}
-      <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-brand-400/20 blur-3xl" />
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-gold-500/10 blur-3xl" />
+      <div className="blob -left-24 -top-24 h-72 w-72 bg-brand-100" />
+      <div className="blob right-10 top-10 h-40 w-40 bg-mint-bg" />
+      <div className="blob -right-20 bottom-0 h-72 w-72 bg-peach-bg" />
+      <div className="dotgrid absolute bottom-10 left-6 h-24 w-32 text-ink-200" />
 
-      <div className="container-x relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="container-x relative grid items-center gap-10 py-12 md:py-20 lg:grid-cols-2">
         {/* Left */}
         <div>
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold backdrop-blur"
+            className="section-label"
           >
-            <ShieldCheck className="h-3.5 w-3.5 text-brand-200" />
             {t.hero.badge}
-          </motion.span>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="mt-5 text-balance text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-[3.4rem]"
+            className="mt-5 text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 md:text-5xl lg:text-[3.5rem]"
           >
             {t.hero.title}
           </motion.h1>
@@ -49,68 +69,123 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
+            className="mt-5 max-w-md text-base leading-relaxed text-ink-500"
           >
             {t.hero.subtitle}
           </motion.p>
 
-          <motion.div
+          {/* Search bar */}
+          <motion.form
+            onSubmit={onSearch}
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.18 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-7 flex max-w-lg items-center gap-2 rounded-full border border-ink-100 bg-white p-2 shadow-card"
           >
-            <Link href="/contact" className="btn btn-gold text-base">
-              {t.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/universities" className="btn btn-ghost-white text-base">
-              {t.hero.ctaSecondary}
-            </Link>
-            <BrochureModal />
-            <a href={`tel:${contactInfo.phoneRaw}`} className="btn btn-ghost-white text-base">
-              <Phone className="h-4 w-4" /> {t.hero.ctaCall}
-            </a>
-          </motion.div>
+            <input
+              type="text"
+              placeholder={t.hero.searchPlaceholder}
+              className="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-ink-800 outline-none placeholder:text-ink-400"
+            />
+            <div className="relative hidden sm:block">
+              <select
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                className="appearance-none rounded-full bg-ink-50 py-2 pl-4 pr-9 text-sm font-medium text-ink-700 outline-none"
+              >
+                <option value="">All</option>
+                {countries.map((c) => (
+                  <option key={c.slug} value={c.slug}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-3 top-2.5 h-4 w-4 text-ink-400" />
+            </div>
+            <button
+              type="submit"
+              className="grid h-10 w-12 shrink-0 place-items-center rounded-full bg-brand-600 text-white transition hover:bg-brand-700"
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+          </motion.form>
 
-          {/* Stats */}
+          {/* Social proof */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.26 }}
-            className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4"
+            transition={{ duration: 0.5, delay: 0.24 }}
+            className="mt-6 flex items-center gap-3"
           >
-            {stats.map((s) => (
-              <div key={s.key} className="rounded-xl border border-white/15 bg-white/5 p-4 backdrop-blur">
-                <s.icon className="h-5 w-5 text-brand-200" />
-                <div className="mt-2 text-2xl font-extrabold">{s.value}</div>
-                <div className="text-xs text-white/70">{t.hero[s.key]}</div>
-              </div>
-            ))}
+            <div className="flex -space-x-3">
+              {avatars.map((src, i) => (
+                <span key={i} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white">
+                  <Image src={src} alt="student" fill sizes="40px" className="object-cover" />
+                </span>
+              ))}
+            </div>
+            <p className="text-sm text-ink-600">
+              <span className="font-bold text-ink-900">2.5K+ {t.hero.onboarded}</span>{" "}
+              <Link href="/gallery" className="font-semibold text-brand-600 hover:underline">
+                {t.hero.viewProfiles}
+              </Link>
+            </p>
+          </motion.div>
+
+          {/* Primary CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-7 flex flex-wrap gap-3"
+          >
+            <Link href="/contact" className="btn btn-primary">
+              {t.hero.ctaPrimary}
+            </Link>
+            <Link href="/study-abroad" className="btn btn-outline">
+              {t.hero.ctaSecondary}
+            </Link>
           </motion.div>
         </div>
 
-        {/* Right — quick lead card */}
+        {/* Right — circular flag composition */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative mx-auto aspect-square w-full max-w-md"
         >
-          <div className="animate-float rounded-3xl border border-white/15 bg-white/95 p-6 text-ink-900 shadow-card md:p-7">
-            <h3 className="text-lg font-extrabold">{t.leadForm.title}</h3>
-            <p className="mt-1 text-sm text-ink-500">{t.leadForm.subtitle}</p>
-            <div className="mt-5">
-              <QuickForm />
-            </div>
+          {/* dashed rings */}
+          <div className="animate-spin-slow absolute inset-4 rounded-full border-2 border-dashed border-brand-200" />
+          <div className="absolute inset-12 rounded-full border border-ink-100" />
+          <div className="absolute inset-8 rounded-full bg-gradient-to-br from-brand-50 to-mint-bg/40" />
+
+          {/* center photo */}
+          <div className="absolute inset-[18%] overflow-hidden rounded-full border-4 border-white shadow-card">
+            <Image
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
+              alt="Student ready to study abroad"
+              fill
+              sizes="(max-width:768px) 60vw, 400px"
+              className="object-cover"
+              priority
+            />
           </div>
+
+          {/* flag bubbles */}
+          {flagBubbles.map((b, i) => (
+            <motion.span
+              key={i}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, delay: b.delay }}
+              className={`absolute ${b.cls} grid h-12 w-12 place-items-center rounded-full border border-ink-100 bg-white text-2xl shadow-float`}
+            >
+              {b.flag}
+            </motion.span>
+          ))}
         </motion.div>
       </div>
     </section>
   );
-}
-
-// compact form reused inside hero
-import LeadForm from "@/components/LeadForm";
-function QuickForm() {
-  return <LeadForm />;
 }

@@ -9,40 +9,44 @@ import Reveal from "@/components/Reveal";
 
 export default function CountriesPreview() {
   const { t } = useLang();
-  const list = countries.filter((c) => c.type.includes("student")).slice(0, 6);
+  const list = countries.filter((c) => c.type.includes("student")).slice(0, 8);
 
   return (
     <section className="py-20">
       <div className="container-x">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="section-label">{t.countries.label}</span>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-ink-900 md:text-4xl">
-            {t.countries.title}
-          </h2>
-          <p className="mt-3 text-ink-500">{t.countries.subtitle}</p>
+        <Reveal className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-ink-900 md:text-4xl">
+              {t.countries.tiedUp}
+            </h2>
+            <p className="mt-1 text-lg text-ink-500">{t.countries.acrossCountries}</p>
+          </div>
+          <Link href="/countries" className="btn btn-outline shrink-0">
+            {t.countries.viewAll} <ArrowRight className="h-4 w-4" />
+          </Link>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
           {list.map((c, i) => (
             <Reveal key={c.slug} delay={i * 0.05}>
               <Link
                 href="/countries"
-                className="group relative block h-56 overflow-hidden rounded-2xl"
+                className="group relative block aspect-[3/4] overflow-hidden rounded-[1.5rem]"
               >
                 <Image
                   src={c.image}
                   alt={c.name}
                   fill
-                  sizes="(max-width:768px) 100vw, 33vw"
+                  sizes="(max-width:768px) 50vw, 25vw"
                   className="object-cover transition duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <div className="text-2xl">{c.flag}</div>
-                  <h3 className="mt-1 text-xl font-extrabold">{c.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-white/80">{c.blurb}</p>
-                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-brand-200">
-                    {t.countries.studentVisa} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/10 to-transparent" />
+                <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink-800 transition group-hover:bg-brand-600 group-hover:text-white">
+                  <ArrowRight className="h-4 w-4 -rotate-45" />
+                </span>
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                  <span className="inline-block rounded-full bg-brand-600/90 px-3 py-1 text-xs font-bold">
+                    {t.countries.studyIn} {c.name} {c.flag}
                   </span>
                 </div>
               </Link>
