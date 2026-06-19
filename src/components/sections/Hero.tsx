@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Search, ChevronDown } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { countries } from "@/lib/data";
+import Typewriter from "@/components/Typewriter";
 
 const flagBubbles = [
   { code: "us", label: "USA", cls: "left-2 top-16 md:left-0 md:top-20", delay: 0 },
@@ -60,9 +61,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="mt-5 text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 md:text-5xl lg:text-[3.5rem]"
+            className="mt-5 text-balance text-3xl font-extrabold leading-[1.15] tracking-tight text-ink-900 sm:text-4xl lg:text-5xl"
           >
-            {t.hero.title}
+            <Typewriter phrases={t.hero.typed} />
           </motion.h1>
 
           <motion.p

@@ -194,6 +194,21 @@ body {
 }
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
 
+/* Typewriter caret */
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background: var(--color-brand-600);
+  border-radius: 2px;
+  animation: caret-blink 1s steps(2, start) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
 /* Scrollbar polish */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--color-ink-200); border-radius: 999px; }

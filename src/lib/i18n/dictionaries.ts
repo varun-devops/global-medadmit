@@ -29,6 +29,10 @@ const en = {
   hero: {
     badge: "Our Goal",
     title: "Start Your Journey to Study Abroad",
+    typed: [
+      "Step Beyond Borders. Start Your Global Education Journey Today.",
+      "Dream Big, Study Abroad. Start Your Journey with Expert Guidance.",
+    ],
     subtitle:
       "Get real-time, expert help for affordable MBBS abroad — from choosing the right NMC & WHO-approved university to admission, visa and arrival support.",
     ctaPrimary: "Book Free Counseling",
@@ -271,6 +275,10 @@ const ru: Dict = {
   hero: {
     badge: "Наша цель",
     title: "Начните свой путь к учёбе за рубежом",
+    typed: [
+      "Шагните за границы. Начните учёбу за рубежом уже сегодня.",
+      "Мечтайте смело — учитесь за рубежом с экспертами рядом.",
+    ],
     subtitle:
       "Получите экспертную помощь в реальном времени для доступного MBBS за рубежом — от выбора университета, одобренного NMC и ВОЗ, до поступления, визы и приезда.",
     ctaPrimary: "Бесплатная консультация",
@@ -512,6 +520,10 @@ const hi: Dict = {
   hero: {
     badge: "हमारा लक्ष्य",
     title: "विदेश में पढ़ाई की अपनी यात्रा शुरू करें",
+    typed: [
+      "सीमाओं के पार कदम रखें। आज ही अपनी वैश्विक शिक्षा यात्रा शुरू करें।",
+      "बड़े सपने देखें, विदेश में पढ़ें। विशेषज्ञ मार्गदर्शन के साथ शुरुआत करें।",
+    ],
     subtitle:
       "किफायती विदेशी MBBS के लिए विशेषज्ञों से रियल-टाइम मदद पाएं — सही NMC व WHO-मान्यता प्राप्त विश्वविद्यालय चुनने से लेकर एडमिशन, वीज़ा और आगमन तक।",
     ctaPrimary: "मुफ़्त काउंसलिंग बुक करें",
