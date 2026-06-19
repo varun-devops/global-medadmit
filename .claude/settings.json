@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://example.supabase.co\" NEXT_PUBLIC_SUPABASE_ANON_KEY=\"dummy-key-for-build\" npm run build)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://example.supabase.co\" NEXT_PUBLIC_SUPABASE_ANON_KEY=\"dummy\" timeout 25 npm run dev)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://example.supabase.co\" NEXT_PUBLIC_SUPABASE_ANON_KEY=\"dummy-key\" npm run build)",
+      "Bash(curl -s -o /dev/null -w 'insert HTTP %{http_code}\\\\n' -X POST https://mbnhuxiywlcoeuhxjluq.supabase.co/rest/v1/leads -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ibmh1eGl5d2xjb2V1aHhqbHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4OTI5MDMsImV4cCI6MjA5NzQ2ODkwM30.DDRGsAMCDBLOWYxZWztnv6pCBGyZwlslp1BJY7gACmY' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ibmh1eGl5d2xjb2V1aHhqbHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4OTI5MDMsImV4cCI6MjA5NzQ2ODkwM30.DDRGsAMCDBLOWYxZWztnv6pCBGyZwlslp1BJY7gACmY' -H 'Content-Type: application/json' -H 'Prefer: return=minimal' -d '{\"full_name\":\"Connection Test\",\"phone\":\"0000000000\",\"interest\":\"study\",\"source\":\"website\",\"message\":\"automated connectivity test - safe to delete\"}')"
+    ]
+  }
+}
