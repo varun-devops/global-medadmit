@@ -10,13 +10,13 @@ import { useLang } from "@/lib/i18n/LanguageProvider";
 import { countries } from "@/lib/data";
 
 const flagBubbles = [
-  { flag: "🇺🇸", cls: "left-2 top-16 md:left-0 md:top-20", delay: 0 },
-  { flag: "🇬🇧", cls: "right-3 top-10 md:right-2 md:top-12", delay: 0.4 },
-  { flag: "🇩🇪", cls: "left-1/2 -top-2 -translate-x-1/2", delay: 0.8 },
-  { flag: "🇮🇳", cls: "left-0 bottom-28 md:-left-4", delay: 1.2 },
-  { flag: "🇦🇺", cls: "left-6 bottom-6 md:left-2 md:bottom-2", delay: 1.6 },
-  { flag: "🇨🇦", cls: "right-2 bottom-2", delay: 2.0 },
-  { flag: "🇷🇺", cls: "right-0 top-1/2 md:-right-3", delay: 2.4 },
+  { code: "us", label: "USA", cls: "left-2 top-16 md:left-0 md:top-20", delay: 0 },
+  { code: "gb", label: "UK", cls: "right-3 top-10 md:right-2 md:top-12", delay: 0.4 },
+  { code: "de", label: "Germany", cls: "left-1/2 -top-2 -translate-x-1/2", delay: 0.8 },
+  { code: "in", label: "India", cls: "left-0 bottom-28 md:-left-4", delay: 1.2 },
+  { code: "au", label: "Australia", cls: "left-6 bottom-6 md:left-2 md:bottom-2", delay: 1.6 },
+  { code: "ca", label: "Canada", cls: "right-2 bottom-2", delay: 2.0 },
+  { code: "ru", label: "Russia", cls: "right-0 top-1/2 md:-right-3", delay: 2.4 },
 ];
 
 const avatars = [
@@ -179,9 +179,15 @@ export default function Hero() {
               key={i}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: b.delay }}
-              className={`absolute ${b.cls} grid h-12 w-12 place-items-center rounded-full border border-ink-100 bg-white text-2xl shadow-float`}
+              className={`absolute ${b.cls} h-12 w-12 overflow-hidden rounded-full border-2 border-white bg-white shadow-float`}
             >
-              {b.flag}
+              <Image
+                src={`https://flagcdn.com/w80/${b.code}.png`}
+                alt={b.label}
+                fill
+                sizes="48px"
+                className="object-cover"
+              />
             </motion.span>
           ))}
         </motion.div>
