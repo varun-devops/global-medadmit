@@ -14,11 +14,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Global MedAdmit Consultants | Study MBBS Abroad at Lowest Fees",
+    default: "Global MedAdmit Consultants | Study MBBS Abroad at the Lowest Fees",
     template: "%s | Global MedAdmit Consultants",
   },
   description:
-    "Expert, transparent counseling for affordable MBBS abroad in NMC & WHO-approved universities — Uzbekistan, Kyrgyzstan, Georgia, Russia, Kazakhstan & more. Free counseling, admission, visa & post-arrival support. Sponsored work-visa assistance for Europe.",
+    "Want to study MBBS abroad without the stress? We guide Indian students into NMC & WHO-approved medical universities in Uzbekistan, Kyrgyzstan, Georgia, Russia and Kazakhstan — with free counselling, the lowest fees, full visa help, NEET/FMGE coaching and post-arrival support. No donation, no hidden charges.",
   keywords: [
     "MBBS abroad",
     "study medicine abroad",

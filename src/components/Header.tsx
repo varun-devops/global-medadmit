@@ -125,19 +125,10 @@ export default function Header() {
             </Link>
           )}
 
-          {/* Apply Now — visible from sm up (hidden on the smallest phones) */}
-          <Link href="/contact" className="hidden btn btn-primary !px-4 !py-2 text-sm sm:inline-flex">
+          {/* Apply Now — desktop only (mobile/tablet use the drawer) */}
+          <Link href="/contact" className="hidden btn btn-primary !px-4 !py-2 text-sm xl:inline-flex">
             {t.nav.applyNow}
           </Link>
-
-          {/* Call shortcut on mobile/tablet */}
-          <a
-            href={`tel:${contactInfo.phoneRaw}`}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-50 text-brand-700 xl:hidden"
-            aria-label="Call"
-          >
-            <Phone className="h-4 w-4" />
-          </a>
 
           {/* Hamburger — below xl */}
           <button

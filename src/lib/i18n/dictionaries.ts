@@ -251,6 +251,58 @@ const en = {
     subtitle: "Book your free counselling today and take the first step toward becoming a doctor.",
     button: "Get Started",
   },
+  stairSteps: {
+    label: "How It Works",
+    title: "Your 5-Step Journey to Studying Abroad",
+    subtitle: "A clear, guided path from your first call to your first day on campus.",
+    steps: [
+      { title: "Free Counselling", desc: "We learn your goals, budget and NEET score, then map out the smartest options for you." },
+      { title: "University Selection", desc: "Pick from NMC & WHO-approved universities with transparent, lowest-fee structures." },
+      { title: "Admission & Offer Letter", desc: "We prepare your documents and secure an official offer — no donation, no surprises." },
+      { title: "Visa & Travel", desc: "Invitation letter, visa filing, tickets and forex — all handled end to end." },
+      { title: "Arrival & Support", desc: "Airport pickup, hostel, Indian mess and on-ground help so you settle in fast." },
+    ],
+  },
+  coaching: {
+    label: "Medical Coaching",
+    title: "Crack Every Medical Exam with Expert Coaching",
+    subtitle: "In-house and university-integrated coaching for the exams that matter most.",
+    items: [
+      { name: "NEET UG", desc: "Foundation and crash courses to clear NEET-UG and qualify for MBBS abroad." },
+      { name: "NEET PG", desc: "Focused preparation for your postgraduate step in medicine." },
+      { name: "FMGE", desc: "FMGE coaching during your course, right inside the university campus." },
+      { name: "USMLE", desc: "Step-by-step USMLE guidance for a career pathway to the USA." },
+    ],
+  },
+  metrics: {
+    label: "Our Track Record",
+    title: "Numbers That Speak for Themselves",
+    subtitle: "Real results from years of guiding medical aspirants abroad.",
+    bars: [
+      { label: "Visa Success Rate", value: 98 },
+      { label: "Admission Success", value: 95 },
+      { label: "Average Fee Savings", value: 40 },
+      { label: "Student Satisfaction", value: 99 },
+    ],
+    chartTitle: "Students Placed by Country",
+  },
+  faq: {
+    label: "FAQ",
+    title: "Frequently Asked Questions",
+    subtitle: "Everything you need to know before you apply.",
+    items: [
+      { q: "Is an MBBS degree from abroad valid in India?", a: "Yes. We only recommend universities listed by the NMC and WHO, so your degree is valid for the FMGE/NExT and to practise in India." },
+      { q: "How much does it cost to study MBBS abroad?", a: "Tuition is usually far lower than private Indian colleges. We help you find the lowest-fee option with no donation and no hidden charges." },
+      { q: "Do I need a NEET score for MBBS abroad?", a: "Yes, a qualified NEET score is required for admission and is needed later for the FMGE/NExT screening test." },
+      { q: "Is the course taught in English?", a: "All of our partner universities teach the full MBBS programme in English." },
+      { q: "Will you help with my visa and travel?", a: "Absolutely. We handle the invitation letter, visa filing, tickets and a full pre-departure briefing." },
+      { q: "What about food and accommodation?", a: "Hostels, Indian mess facilities and local orientation are all part of our post-arrival support." },
+    ],
+  },
+  seo: {
+    title: "MBBS Abroad Made Simple, Honest and Affordable",
+    body: "Choosing to study medicine overseas is a big decision, and you deserve guidance you can actually trust. For over a decade we have helped Indian students step into NMC- and WHO-approved universities across Uzbekistan, Kyrgyzstan, Georgia, Russia and beyond — without inflated fees or hidden donations.\n\nFrom your first free counselling call to your first day on campus, one dedicated advisor stays with you. We shortlist the right university for your budget, prepare every document, file your visa, and make sure home-style food and comfortable accommodation are waiting when you land. Your dream of becoming a doctor should never be held back by cost or confusion — and with the right partner beside you, it won't be.",
+  },
   whatsapp: "Chat with us on WhatsApp",
 };
 
@@ -496,6 +548,58 @@ const ru: Dict = {
     subtitle: "Запишитесь на бесплатную консультацию сегодня и сделайте первый шаг к профессии врача.",
     button: "Начать",
   },
+  stairSteps: {
+    label: "Как это работает",
+    title: "Ваш путь к учёбе за рубежом в 5 шагов",
+    subtitle: "Понятный сопровождаемый путь от первого звонка до первого дня в кампусе.",
+    steps: [
+      { title: "Бесплатная консультация", desc: "Изучаем ваши цели, бюджет и баллы NEET и подбираем лучшие варианты." },
+      { title: "Выбор университета", desc: "Университеты, одобренные NMC и ВОЗ, с прозрачной и низкой оплатой." },
+      { title: "Поступление и приглашение", desc: "Готовим документы и получаем официальное приглашение — без взносов." },
+      { title: "Виза и поездка", desc: "Приглашение, виза, билеты и обмен валюты — всё под ключ." },
+      { title: "Приезд и поддержка", desc: "Встреча в аэропорту, общежитие, индийская столовая и помощь на месте." },
+    ],
+  },
+  coaching: {
+    label: "Медицинская подготовка",
+    title: "Сдайте любой медицинский экзамен с экспертами",
+    subtitle: "Подготовка внутри университета к самым важным экзаменам.",
+    items: [
+      { name: "NEET UG", desc: "Базовые и интенсивные курсы для сдачи NEET-UG." },
+      { name: "NEET PG", desc: "Целенаправленная подготовка к последипломному этапу." },
+      { name: "FMGE", desc: "Подготовка к FMGE прямо в кампусе во время учёбы." },
+      { name: "USMLE", desc: "Пошаговое сопровождение USMLE для карьеры в США." },
+    ],
+  },
+  metrics: {
+    label: "Наши результаты",
+    title: "Цифры говорят сами за себя",
+    subtitle: "Реальные итоги многолетней работы со студентами.",
+    bars: [
+      { label: "Успешность визы", value: 98 },
+      { label: "Успешность поступления", value: 95 },
+      { label: "Средняя экономия на оплате", value: 40 },
+      { label: "Удовлетворённость студентов", value: 99 },
+    ],
+    chartTitle: "Студенты по странам",
+  },
+  faq: {
+    label: "Вопросы",
+    title: "Частые вопросы",
+    subtitle: "Всё, что нужно знать перед подачей заявки.",
+    items: [
+      { q: "Признаётся ли диплом MBBS из-за рубежа в Индии?", a: "Да. Мы рекомендуем только университеты из списков NMC и ВОЗ, поэтому диплом действителен для FMGE/NExT." },
+      { q: "Сколько стоит MBBS за рубежом?", a: "Обычно намного дешевле частных колледжей Индии. Поможем найти вариант с самой низкой оплатой без взносов." },
+      { q: "Нужен ли балл NEET?", a: "Да, требуется квалифицированный балл NEET для поступления и позже для FMGE/NExT." },
+      { q: "Обучение на английском?", a: "Все наши университеты-партнёры ведут программу MBBS полностью на английском." },
+      { q: "Поможете с визой и поездкой?", a: "Конечно. Берём на себя приглашение, подачу на визу, билеты и подготовку к отъезду." },
+      { q: "А питание и проживание?", a: "Общежитие, индийская столовая и адаптация входят в нашу поддержку после приезда." },
+    ],
+  },
+  seo: {
+    title: "MBBS за рубежом — просто, честно и доступно",
+    body: "Решение учиться медицине за рубежом — важное, и вы заслуживаете поддержки, которой можно доверять. Более десяти лет мы помогаем студентам поступать в университеты, одобренные NMC и ВОЗ, в Узбекистане, Кыргызстане, Грузии, России и других странах — без завышенных цен и скрытых взносов.\n\nОт первого бесплатного звонка до первого дня в кампусе с вами один персональный консультант. Мы подбираем университет под ваш бюджет, готовим документы, оформляем визу и заботимся о домашней еде и комфортном жилье к вашему приезду. Мечта стать врачом не должна упираться в цену или путаницу — и с надёжным партнёром она не упрётся.",
+  },
   whatsapp: "Напишите нам в WhatsApp",
 };
 
@@ -740,6 +844,58 @@ const hi: Dict = {
     title: "क्या आप अपने सपनों के लिए उड़ान भरने को तैयार हैं?",
     subtitle: "आज ही मुफ़्त काउंसलिंग बुक करें और डॉक्टर बनने की दिशा में पहला कदम उठाएं।",
     button: "शुरू करें",
+  },
+  stairSteps: {
+    label: "यह कैसे काम करता है",
+    title: "विदेश में पढ़ाई की 5-चरण यात्रा",
+    subtitle: "पहली कॉल से लेकर कैंपस के पहले दिन तक एक स्पष्ट, मार्गदर्शित रास्ता।",
+    steps: [
+      { title: "मुफ़्त काउंसलिंग", desc: "हम आपके लक्ष्य, बजट और NEET स्कोर समझकर सबसे अच्छे विकल्प चुनते हैं।" },
+      { title: "विश्वविद्यालय चयन", desc: "NMC व WHO-मान्यता प्राप्त विश्वविद्यालय, पारदर्शी और सबसे कम फीस के साथ।" },
+      { title: "एडमिशन व ऑफर लेटर", desc: "हम दस्तावेज़ तैयार कर आधिकारिक ऑफर दिलाते हैं — बिना डोनेशन।" },
+      { title: "वीज़ा व यात्रा", desc: "निमंत्रण पत्र, वीज़ा फाइलिंग, टिकट और फॉरेक्स — सब हम संभालते हैं।" },
+      { title: "आगमन व सहायता", desc: "एयरपोर्ट पिकअप, हॉस्टल, भारतीय मेस और ज़मीनी मदद ताकि आप जल्दी बस जाएं।" },
+    ],
+  },
+  coaching: {
+    label: "मेडिकल कोचिंग",
+    title: "विशेषज्ञ कोचिंग के साथ हर मेडिकल परीक्षा पास करें",
+    subtitle: "सबसे ज़रूरी परीक्षाओं के लिए विश्वविद्यालय में एकीकृत कोचिंग।",
+    items: [
+      { name: "NEET UG", desc: "NEET-UG पास करने और विदेश में MBBS के लिए फाउंडेशन व क्रैश कोर्स।" },
+      { name: "NEET PG", desc: "मेडिसिन में पोस्टग्रेजुएट कदम के लिए केंद्रित तैयारी।" },
+      { name: "FMGE", desc: "पढ़ाई के दौरान विश्वविद्यालय कैंपस में ही FMGE कोचिंग।" },
+      { name: "USMLE", desc: "USA करियर पथ के लिए चरण-दर-चरण USMLE मार्गदर्शन।" },
+    ],
+  },
+  metrics: {
+    label: "हमारा रिकॉर्ड",
+    title: "आँकड़े खुद बोलते हैं",
+    subtitle: "वर्षों के मार्गदर्शन के वास्तविक परिणाम।",
+    bars: [
+      { label: "वीज़ा सफलता दर", value: 98 },
+      { label: "एडमिशन सफलता", value: 95 },
+      { label: "औसत फीस बचत", value: 40 },
+      { label: "छात्र संतुष्टि", value: 99 },
+    ],
+    chartTitle: "देश अनुसार दाखिल छात्र",
+  },
+  faq: {
+    label: "सामान्य प्रश्न",
+    title: "अक्सर पूछे जाने वाले प्रश्न",
+    subtitle: "आवेदन से पहले जानने योग्य सब कुछ।",
+    items: [
+      { q: "क्या विदेश की MBBS डिग्री भारत में मान्य है?", a: "हाँ। हम केवल NMC और WHO सूचीबद्ध विश्वविद्यालय सुझाते हैं, इसलिए आपकी डिग्री FMGE/NExT के लिए मान्य है।" },
+      { q: "विदेश में MBBS की लागत कितनी है?", a: "आमतौर पर भारतीय निजी कॉलेजों से बहुत कम। हम बिना डोनेशन सबसे कम फीस वाला विकल्प दिलाते हैं।" },
+      { q: "क्या NEET स्कोर ज़रूरी है?", a: "हाँ, एडमिशन और बाद में FMGE/NExT के लिए क्वालिफाइड NEET स्कोर आवश्यक है।" },
+      { q: "क्या पढ़ाई अंग्रेज़ी में होती है?", a: "हमारे सभी साझेदार विश्वविद्यालय पूरा MBBS कोर्स अंग्रेज़ी में पढ़ाते हैं।" },
+      { q: "क्या वीज़ा और यात्रा में मदद मिलेगी?", a: "बिल्कुल। हम निमंत्रण पत्र, वीज़ा फाइलिंग, टिकट और प्रस्थान-पूर्व ब्रीफिंग संभालते हैं।" },
+      { q: "खाना और आवास का क्या?", a: "हॉस्टल, भारतीय मेस और स्थानीय ओरिएंटेशन हमारी आगमन-बाद सहायता का हिस्सा हैं।" },
+    ],
+  },
+  seo: {
+    title: "विदेश में MBBS — आसान, ईमानदार और किफायती",
+    body: "विदेश में मेडिसिन पढ़ने का फैसला बड़ा होता है, और आप ऐसे मार्गदर्शन के हकदार हैं जिस पर सच में भरोसा हो। एक दशक से अधिक समय से हम भारतीय छात्रों को उज़्बेकिस्तान, किर्गिज़स्तान, जॉर्जिया, रूस और अन्य देशों के NMC व WHO-मान्यता प्राप्त विश्वविद्यालयों में दाखिल कराते आ रहे हैं — बिना बढ़ी हुई फीस या छिपे डोनेशन के।\n\nपहली मुफ़्त काउंसलिंग कॉल से लेकर कैंपस के पहले दिन तक एक समर्पित सलाहकार आपके साथ रहता है। हम आपके बजट के अनुसार विश्वविद्यालय चुनते हैं, हर दस्तावेज़ तैयार करते हैं, वीज़ा फाइल करते हैं, और आपके पहुँचने पर घर जैसा भोजन व आरामदायक आवास सुनिश्चित करते हैं। डॉक्टर बनने का आपका सपना लागत या उलझन से कभी न रुके — और सही साथी के साथ नहीं रुकेगा।",
   },
   whatsapp: "WhatsApp पर हमसे चैट करें",
 };
