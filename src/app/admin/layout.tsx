@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { LayoutDashboard, Inbox, Images, CalendarDays, Home, LogOut, Loader2, ShieldAlert } from "lucide-react";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { cn } from "@/lib/utils";
+import Logo from "@/components/Logo";
 
 const navItems = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard },
@@ -48,9 +49,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="flex min-h-screen bg-ink-50">
       {/* Sidebar */}
       <aside className="hidden w-64 shrink-0 flex-col border-r border-ink-100 bg-white p-4 md:flex">
-        <Link href="/admin" className="mb-6 flex items-center gap-2 px-2 py-1 font-extrabold text-ink-900">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white">A</span>
-          Admin Panel
+        <Link href="/admin" className="mb-6 flex items-center gap-2 px-2 py-1">
+          <Logo size={36} />
+          <span className="rounded-md bg-brand-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-brand-700">
+            Admin
+          </span>
         </Link>
         <nav className="flex-1 space-y-1">
           {navItems.map((item) => (

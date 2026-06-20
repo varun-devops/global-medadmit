@@ -73,7 +73,7 @@ async function sendAdminEmail(lead: Record<string, any>) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: `Global MedAdmit <${from}>`,
+      from: `GLOBERA International <${from}>`,
       to: [to],
       subject: `New inquiry from ${lead.full_name}`,
       html,

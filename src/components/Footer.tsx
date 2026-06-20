@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Stethoscope, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { contactInfo } from "@/lib/data";
+import Logo from "./Logo";
 
 export default function Footer() {
   const { t } = useLang();
@@ -14,17 +15,7 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-600 text-white">
-              <Stethoscope className="h-5 w-5" />
-            </span>
-            <span className="leading-tight">
-              <span className="block text-base font-extrabold text-white">Global MedAdmit</span>
-              <span className="block text-[11px] font-semibold uppercase tracking-wider text-brand-400">
-                Consultants
-              </span>
-            </span>
-          </div>
+          <Logo size={48} light big tagline />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-300">{t.footer.tagline}</p>
           <div className="mt-5 flex gap-2">
             {[Facebook, Instagram, Youtube].map((Icon, i) => (
@@ -99,7 +90,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-ink-400 md:flex-row md:items-center md:justify-between">
-          <p>© {year} Global MedAdmit Consultants. {t.footer.rights}</p>
+          <p>© {year} {t.brand}. {t.footer.rights}</p>
           <p className="max-w-2xl md:text-right">{t.footer.disclaimer}</p>
         </div>
       </div>

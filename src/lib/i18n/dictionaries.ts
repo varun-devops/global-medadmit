@@ -9,7 +9,7 @@ export const LANGS: { code: Lang; label: string; flag: string }[] = [
 type Dict = typeof en;
 
 const en = {
-  brand: "Global MedAdmit Consultants",
+  brand: "GLOBERA International Private Limited",
   nav: {
     home: "Home",
     about: "About",
@@ -132,7 +132,7 @@ const en = {
     label: "About Us",
     title: "Guiding Future Doctors Across Borders",
     body:
-      "Global MedAdmit Consultants helps aspiring medical students achieve their dream of becoming doctors through transparent counseling, university selection, admission guidance and complete overseas-education services. With years of experience and a network of trusted partner universities, we make studying abroad affordable and stress-free.",
+      "GLOBERA International helps aspiring medical students achieve their dream of becoming doctors through transparent counseling, university selection, admission guidance and complete overseas-education services. With years of experience and a network of trusted partner universities, we make studying abroad affordable and stress-free.",
   },
   cta: {
     title: "Ready to Start Your Medical Journey Abroad?",
@@ -307,7 +307,7 @@ const en = {
 };
 
 const ru: Dict = {
-  brand: "Global MedAdmit Consultants",
+  brand: "GLOBERA International Private Limited",
   nav: {
     home: "Главная",
     about: "О нас",
@@ -429,7 +429,7 @@ const ru: Dict = {
     label: "О нас",
     title: "Сопровождаем будущих врачей через границы",
     body:
-      "Global MedAdmit Consultants помогает будущим медикам осуществить мечту стать врачом через прозрачные консультации, выбор университета, помощь с поступлением и полный комплекс услуг по обучению за рубежом. Многолетний опыт и сеть надёжных университетов-партнёров делают обучение за рубежом доступным и без стресса.",
+      "GLOBERA International помогает будущим медикам осуществить мечту стать врачом через прозрачные консультации, выбор университета, помощь с поступлением и полный комплекс услуг по обучению за рубежом. Многолетний опыт и сеть надёжных университетов-партнёров делают обучение за рубежом доступным и без стресса.",
   },
   cta: {
     title: "Готовы начать медицинский путь за рубежом?",
@@ -604,7 +604,7 @@ const ru: Dict = {
 };
 
 const hi: Dict = {
-  brand: "Global MedAdmit Consultants",
+  brand: "GLOBERA International Private Limited",
   nav: {
     home: "होम",
     about: "हमारे बारे में",
@@ -726,7 +726,7 @@ const hi: Dict = {
     label: "हमारे बारे में",
     title: "सीमाओं के पार भविष्य के डॉक्टरों का मार्गदर्शन",
     body:
-      "Global MedAdmit Consultants पारदर्शी काउंसलिंग, विश्वविद्यालय चयन, एडमिशन मार्गदर्शन और संपूर्ण विदेशी-शिक्षा सेवाओं के माध्यम से इच्छुक मेडिकल छात्रों को डॉक्टर बनने का सपना पूरा करने में मदद करता है। वर्षों के अनुभव और भरोसेमंद साझेदार विश्वविद्यालयों के नेटवर्क के साथ, हम विदेश में पढ़ाई को किफायती और तनाव-मुक्त बनाते हैं।",
+      "GLOBERA International पारदर्शी काउंसलिंग, विश्वविद्यालय चयन, एडमिशन मार्गदर्शन और संपूर्ण विदेशी-शिक्षा सेवाओं के माध्यम से इच्छुक मेडिकल छात्रों को डॉक्टर बनने का सपना पूरा करने में मदद करता है। वर्षों के अनुभव और भरोसेमंद साझेदार विश्वविद्यालयों के नेटवर्क के साथ, हम विदेश में पढ़ाई को किफायती और तनाव-मुक्त बनाते हैं।",
   },
   cta: {
     title: "विदेश में अपनी मेडिकल यात्रा शुरू करने के लिए तैयार हैं?",

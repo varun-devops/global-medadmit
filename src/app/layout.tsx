@@ -14,8 +14,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Global MedAdmit Consultants | Study MBBS Abroad at the Lowest Fees",
-    template: "%s | Global MedAdmit Consultants",
+    default: "GLOBERA International | Study MBBS Abroad at the Lowest Fees",
+    template: "%s | GLOBERA International",
   },
   description:
     "Want to study MBBS abroad without the stress? We guide Indian students into NMC & WHO-approved medical universities in Uzbekistan, Kyrgyzstan, Georgia, Russia and Kazakhstan — with free counselling, the lowest fees, full visa help, NEET/FMGE coaching and post-arrival support. No donation, no hidden charges.",
@@ -32,22 +32,27 @@ export const metadata: Metadata = {
     "sponsored work visa Europe",
     "FMGE NExT coaching",
   ],
-  authors: [{ name: "Global MedAdmit Consultants" }],
+  authors: [{ name: "GLOBERA International Private Limited" }],
   openGraph: {
     type: "website",
-    title: "Global MedAdmit Consultants | Study MBBS Abroad at Lowest Fees",
+    title: "GLOBERA International | Study MBBS Abroad — From Dreams to Degrees",
     description:
       "Affordable MBBS abroad in top NMC & WHO-approved universities. Free counseling, admission, visa & post-arrival support.",
-    siteName: "Global MedAdmit Consultants",
+    siteName: "GLOBERA International Private Limited",
     url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Global MedAdmit Consultants | Study MBBS Abroad at Lowest Fees",
+    title: "GLOBERA International | Study MBBS Abroad — From Dreams to Degrees",
     description:
       "Affordable MBBS abroad in top NMC & WHO-approved universities. Free counseling, admission & visa support.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/logo-1.png",
+    shortcut: "/logo-1.png",
+    apple: "/logo-1.png",
+  },
 };
 
 export default function RootLayout({

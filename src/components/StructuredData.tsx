@@ -7,7 +7,8 @@ export default function StructuredData() {
   const org = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    name: "Global MedAdmit Consultants",
+    name: "GLOBERA International Private Limited",
+    slogan: "From Dreams to Degrees",
     description:
       "Medical education consultancy helping students study MBBS abroad in NMC & WHO-approved universities, with admission, visa, coaching and post-arrival support.",
     url: base,

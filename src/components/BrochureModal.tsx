@@ -20,7 +20,7 @@ export default function BrochureModal({
   function triggerDownload() {
     const a = document.createElement("a");
     a.href = BROCHURE_URL;
-    a.download = "Global-MedAdmit-Brochure.pdf";
+    a.download = "GLOBERA-Brochure.pdf";
     document.body.appendChild(a);
     a.click();
     a.remove();

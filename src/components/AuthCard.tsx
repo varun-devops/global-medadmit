@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Stethoscope } from "lucide-react";
+import Logo from "./Logo";
 
 export default function AuthCard({
   title,
@@ -15,11 +15,8 @@ export default function AuthCard({
   return (
     <div className="hero-gradient grid min-h-screen place-items-center p-4">
       <div className="w-full max-w-md">
-        <Link href="/" className="mb-6 flex items-center justify-center gap-2.5 text-white">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15 backdrop-blur">
-            <Stethoscope className="h-5 w-5" />
-          </span>
-          <span className="text-lg font-extrabold">Global MedAdmit</span>
+        <Link href="/" className="mb-6 flex justify-center">
+          <Logo size={52} light big tagline />
         </Link>
         <div className="card p-7 md:p-8">
           <h1 className="text-2xl font-extrabold text-ink-900">{title}</h1>

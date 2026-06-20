@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Stethoscope, Phone, User, LayoutDashboard, Shield, LogOut } from "lucide-react";
+import { Menu, X, Phone, User, LayoutDashboard, Shield, LogOut } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { contactInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "./Logo";
 
 export default function Header() {
   const { t } = useLang();
@@ -61,18 +62,8 @@ export default function Header() {
     >
       <div className="container-x flex h-16 items-center justify-between gap-2 md:h-20 md:gap-4">
         {/* Logo */}
-        <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-2.5">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white shadow-soft sm:h-10 sm:w-10">
-            <Stethoscope className="h-5 w-5" />
-          </span>
-          <span className="min-w-0 leading-tight">
-            <span className="block truncate text-[14px] font-extrabold tracking-tight text-ink-900 sm:text-[15px]">
-              Global MedAdmit
-            </span>
-            <span className="hidden text-[11px] font-semibold uppercase tracking-wider text-brand-600 sm:block">
-              Consultants
-            </span>
-          </span>
+        <Link href="/" className="min-w-0">
+          <Logo size={42} hideSubOnMobile />
         </Link>
 
         {/* Desktop nav (xl and up) */}
@@ -169,13 +160,8 @@ export default function Header() {
             >
               {/* drawer header */}
               <div className="flex items-center justify-between border-b border-ink-100 px-5 py-4">
-                <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 text-white">
-                    <Stethoscope className="h-5 w-5" />
-                  </span>
-                  <span className="text-[15px] font-extrabold tracking-tight text-ink-900">
-                    Global MedAdmit
-                  </span>
+                <Link href="/" onClick={() => setOpen(false)}>
+                  <Logo size={40} />
                 </Link>
                 <button
                   onClick={() => setOpen(false)}
