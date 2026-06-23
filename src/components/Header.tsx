@@ -163,7 +163,7 @@ export default function Header() {
               aria-modal="true"
             >
               {/* drawer header */}
-              <div className="flex items-center justify-between border-b border-ink-100 px-5 py-4">
+              <div className="flex shrink-0 items-center justify-between border-b border-ink-100 px-5 py-4">
                 <Link href="/" onClick={() => setOpen(false)}>
                   <Logo size={40} />
                 </Link>
@@ -176,15 +176,15 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* scrollable nav */}
-              <nav className="flex-1 overflow-y-auto px-4 py-4">
-                <div className="flex flex-col gap-1">
+              {/* scrollable nav — all tabs, scrolls if the screen is short */}
+              <nav className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
+                <div className="flex flex-col gap-0.5">
                   {nav.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        "rounded-lg px-3 py-3 text-[15px] font-medium transition",
+                        "rounded-lg px-3 py-2.5 text-[15px] font-medium transition",
                         pathname === item.href
                           ? "bg-brand-50 text-brand-700"
                           : "text-ink-700 hover:bg-ink-50",
@@ -196,12 +196,12 @@ export default function Header() {
                 </div>
               </nav>
 
-              {/* sticky footer actions */}
-              <div className="space-y-2 border-t border-ink-100 px-4 py-4">
+              {/* sticky footer actions (no Login / Apply Now on mobile) */}
+              <div className="shrink-0 space-y-2 border-t border-ink-100 px-4 py-4">
                 <div className="flex justify-center pb-1">
                   <LanguageSwitcher />
                 </div>
-                {user ? (
+                {user && (
                   <>
                     <Link href="/dashboard" className="btn btn-outline w-full justify-start">
                       <LayoutDashboard className="h-4 w-4" /> {t.nav.dashboard}
@@ -215,14 +215,7 @@ export default function Header() {
                       <LogOut className="h-4 w-4" /> {t.nav.logout}
                     </button>
                   </>
-                ) : (
-                  <Link href="/login" className="btn btn-outline w-full justify-start">
-                    <User className="h-4 w-4" /> {t.nav.login}
-                  </Link>
                 )}
-                <Link href="/contact" className="btn btn-primary w-full">
-                  {t.nav.applyNow}
-                </Link>
                 <a
                   href={`tel:${contactInfo.phoneRaw}`}
                   className="btn btn-outline w-full justify-start"
