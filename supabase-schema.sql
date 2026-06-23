@@ -186,6 +186,47 @@ create policy "events_admin_delete" on public.events
   for delete using (public.is_admin());
 
 
+-- 4b) GLOBAL VISITOR COUNTER -------------------------------------------
+-- A single-row counter shared by every visitor.
+create table if not exists public.site_stats (
+  id int primary key default 1,
+  visits bigint not null default 0,
+  constraint site_stats_singleton check (id = 1)
+);
+
+insert into public.site_stats (id, visits)
+values (1, 0)
+on conflict (id) do nothing;
+
+alter table public.site_stats enable row level security;
+
+-- Everyone can read the current count.
+drop policy if exists "site_stats_select_public" on public.site_stats;
+create policy "site_stats_select_public" on public.site_stats
+  for select using (true);
+
+-- Atomically increment the counter and return the new total.
+-- SECURITY DEFINER so anonymous visitors can bump it without table-write rights.
+create or replace function public.increment_visits()
+returns bigint
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  new_total bigint;
+begin
+  update public.site_stats
+    set visits = visits + 1
+    where id = 1
+    returning visits into new_total;
+  return new_total;
+end;
+$$;
+
+grant execute on function public.increment_visits() to anon, authenticated;
+
+
 -- 5) STORAGE BUCKET for gallery images ---------------------------------
 insert into storage.buckets (id, name, public)
 values ('gallery', 'gallery', true)

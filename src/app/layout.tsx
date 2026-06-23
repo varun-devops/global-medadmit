@@ -34,6 +34,11 @@ export const metadata: Metadata = {
     "FMGE NExT coaching",
   ],
   authors: [{ name: "GLOBERA International Private Limited" }],
+  creator: "GLOBERA International Private Limited",
+  publisher: "GLOBERA International Private Limited",
+  applicationName: "GLOBERA International",
+  category: "education",
+  formatDetection: { telephone: true, email: true, address: true },
   openGraph: {
     type: "website",
     title: "GLOBERA International | Study MBBS Abroad — From Dreams to Degrees",

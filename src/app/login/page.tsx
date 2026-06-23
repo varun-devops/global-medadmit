@@ -35,8 +35,16 @@ function LoginInner() {
       const fallback = profile?.role === "admin" ? "/admin" : "/dashboard";
       router.push(params.get("redirect") || fallback);
       router.refresh();
-    } catch (err: any) {
-      toast.error(err?.message || "Login failed");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Login failed";
+      // Friendlier wording for common Supabase auth errors.
+      if (/email not confirmed/i.test(msg)) {
+        toast.error("Please confirm your email, or ask the admin to disable email confirmation.");
+      } else if (/rate limit|email.*(limit|exceeded)/i.test(msg)) {
+        toast.error("Too many attempts. Please wait a minute and try again.");
+      } else {
+        toast.error(msg);
+      }
     } finally {
       setLoading(false);
     }

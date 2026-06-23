@@ -31,15 +31,14 @@ export default function SignupPage() {
       });
       if (error) throw error;
 
-      // If the project requires email confirmation, there is no active session
-      // yet — tell the user to confirm before signing in.
+      // With email confirmation disabled in Supabase, sign-up returns an active
+      // session and the user goes straight to their dashboard. If confirmation
+      // is still on, sign them in directly so there's no "check your email" step.
       if (!data.session) {
-        toast.success("Account created! Check your email to confirm, then sign in.");
-        router.push("/login");
-      } else {
-        toast.success("Account created!");
-        router.push("/dashboard");
+        await supabase.auth.signInWithPassword({ email: form.email, password: form.password });
       }
+      toast.success("Account created!");
+      router.push("/dashboard");
       router.refresh();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Signup failed");

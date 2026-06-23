@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import TopBar from "./TopBar";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppFloat from "./WhatsAppFloat";
@@ -17,6 +18,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <TopBar />
       <Header />
       <main className="min-h-[60vh]">{children}</main>
       <Footer />

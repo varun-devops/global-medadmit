@@ -87,7 +87,10 @@ export default function Header() {
 
         {/* Right actions */}
         <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
-          <LanguageSwitcher />
+          {/* Language switcher only from xl+ (mobile uses the drawer) */}
+          <span className="hidden xl:inline-flex">
+            <LanguageSwitcher />
+          </span>
 
           {/* Inline auth/apply only at xl+ */}
           {user ? (
@@ -195,6 +198,9 @@ export default function Header() {
 
               {/* sticky footer actions */}
               <div className="space-y-2 border-t border-ink-100 px-4 py-4">
+                <div className="flex justify-center pb-1">
+                  <LanguageSwitcher />
+                </div>
                 {user ? (
                   <>
                     <Link href="/dashboard" className="btn btn-outline w-full justify-start">

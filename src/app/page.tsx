@@ -13,6 +13,7 @@ import BlogSection from "@/components/sections/BlogSection";
 import Faq from "@/components/sections/Faq";
 import StatsBand from "@/components/sections/StatsBand";
 import CtaBand from "@/components/sections/CtaBand";
+import BrandShowcase from "@/components/sections/BrandShowcase";
 import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
       <Faq />
       <StatsBand />
       <CtaBand />
+      <BrandShowcase />
     </>
   );
 }

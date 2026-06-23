@@ -23,6 +23,18 @@ export default function StructuredData() {
     knowsAbout: ["MBBS Abroad", "NEET Counselling", "FMGE Coaching", "USMLE", "Student Visa"],
   };
 
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "GLOBERA International Private Limited",
+    url: base,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${base}/universities?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -38,6 +50,10 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
       <script
         type="application/ld+json"
