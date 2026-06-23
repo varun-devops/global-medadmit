@@ -19,7 +19,7 @@ export default function StructuredData() {
       streetAddress: contactInfo.address,
       addressCountry: "IN",
     },
-    areaServed: ["Uzbekistan", "Kyrgyzstan", "Georgia", "Russia", "Kazakhstan", "Hungary"],
+    areaServed: ["Ukraine", "Hungary", "Romania", "Moldova", "Latvia", "Serbia", "Bosnia & Herzegovina", "Montenegro", "Albania"],
     knowsAbout: ["MBBS Abroad", "NEET Counselling", "FMGE Coaching", "USMLE", "Student Visa"],
   };
 

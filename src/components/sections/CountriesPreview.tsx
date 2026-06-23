@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { countries } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import Flag from "@/components/Flag";
 
 export default function CountriesPreview() {
   const { t } = useLang();
@@ -45,8 +46,9 @@ export default function CountriesPreview() {
                   <ArrowRight className="h-4 w-4 -rotate-45" />
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                  <span className="inline-block rounded-full bg-brand-600/90 px-3 py-1 text-xs font-bold">
-                    {t.countries.studyIn} {c.name} {c.flag}
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-600/90 px-3 py-1 text-xs font-bold">
+                    <Flag code={c.code} name={c.name} className="h-3.5 w-5" />
+                    {t.countries.studyIn} {c.name}
                   </span>
                 </div>
               </Link>

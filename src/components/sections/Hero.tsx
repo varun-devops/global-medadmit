@@ -9,6 +9,7 @@ import { Search, ChevronDown } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { countries } from "@/lib/data";
 import Typewriter from "@/components/Typewriter";
+import TriangleField from "@/components/TriangleField";
 
 const flagBubbles = [
   { code: "us", label: "USA", cls: "left-2 top-16 md:left-0 md:top-20", delay: 0 },
@@ -38,11 +39,10 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-white">
-      {/* decorative blobs */}
-      <div className="blob -left-24 -top-24 h-72 w-72 bg-brand-100" />
-      <div className="blob right-10 top-10 h-40 w-40 bg-mint-bg" />
-      <div className="blob -right-20 bottom-0 h-72 w-72 bg-peach-bg" />
+    <section className="tri-bg-light relative overflow-hidden">
+      {/* geometric triangle mesh (echoes the reference design, on-brand violet) */}
+      <span className="tri-mesh right-0 top-0 hidden h-full w-1/2 md:block" aria-hidden />
+      <TriangleField tone="light" className="right-0 top-0 hidden h-2/3 w-1/2 lg:block" />
       <div className="dotgrid absolute bottom-10 left-6 h-24 w-32 text-ink-200" />
 
       <div className="container-x relative grid items-center gap-10 py-12 md:py-20 lg:grid-cols-2">
@@ -127,7 +127,7 @@ export default function Hero() {
               ))}
             </div>
             <p className="text-sm text-ink-600">
-              <span className="font-bold text-ink-900">2.5K+ {t.hero.onboarded}</span>{" "}
+              <span className="font-bold text-ink-900">1000+ {t.hero.onboarded}</span>{" "}
               <Link href="/gallery" className="font-semibold text-brand-600 hover:underline">
                 {t.hero.viewProfiles}
               </Link>
@@ -157,6 +157,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative mx-auto aspect-square w-full max-w-md"
         >
+          {/* triangle backdrop behind the composition */}
+          <TriangleField tone="light" className="-inset-6 -z-10" />
           {/* dashed rings */}
           <div className="animate-spin-slow absolute inset-4 rounded-full border-2 border-dashed border-brand-200" />
           <div className="absolute inset-12 rounded-full border border-ink-100" />

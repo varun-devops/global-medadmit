@@ -7,6 +7,7 @@ import { useLang } from "@/lib/i18n/LanguageProvider";
 import { countries } from "@/lib/data";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import Flag from "@/components/Flag";
 
 export default function CountriesPage() {
   const { t } = useLang();
@@ -28,7 +29,7 @@ export default function CountriesPage() {
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent" />
-                  <span className="absolute bottom-3 left-4 text-3xl">{c.flag}</span>
+                  <Flag code={c.code} name={c.name} className="absolute bottom-3 left-4 h-7 w-10 rounded-md shadow-md" />
                 </div>
                 <div className="p-5">
                   <h3 className="text-xl font-extrabold text-ink-900">{c.name}</h3>

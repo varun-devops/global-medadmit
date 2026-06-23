@@ -7,6 +7,7 @@ import { useLang } from "@/lib/i18n/LanguageProvider";
 import { universities } from "@/lib/data";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import Flag from "@/components/Flag";
 
 export default function UniversitiesPage() {
   const { t } = useLang();
@@ -28,8 +29,13 @@ export default function UniversitiesPage() {
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-ink-800">
-                    <MapPin className="h-3.5 w-3.5" /> {u.flag} {u.country}
+                    <MapPin className="h-3.5 w-3.5" /> <Flag code={u.code} name={u.country} className="h-3 w-4" /> {u.country}
                   </span>
+                  {u.slug === "umfst-targu-mures" && (
+                    <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-600 px-2.5 py-1 text-xs font-bold text-white shadow-soft">
+                      ★ Featured
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-bold leading-snug text-ink-900">{u.name}</h3>
@@ -53,10 +59,10 @@ export default function UniversitiesPage() {
                     ))}
                   </div>
                   <Link
-                    href="/contact"
+                    href={`/universities/${u.slug}`}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:gap-2"
                   >
-                    {t.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
+                    View university <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </article>

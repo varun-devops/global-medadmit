@@ -6,14 +6,14 @@ import { useLang } from "@/lib/i18n/LanguageProvider";
 import Reveal from "@/components/Reveal";
 
 const partnerNames = [
-  "Andijan State Medical",
-  "Bukhara State Medical",
-  "Fergana Public Health",
-  "Intl. Medical University",
-  "Georgian National SEU",
-  "Bukhara Innovative",
-  "Tashkent Medical",
-  "Osh State University",
+  "Bogomolets NMU",
+  "Kharkiv NMU",
+  "University of Debrecen",
+  "Semmelweis University",
+  "Carol Davila UMP",
+  "Riga Stradiņš University",
+  "University of Belgrade",
+  "University of Tirana",
 ];
 
 export default function PartnersLogos() {

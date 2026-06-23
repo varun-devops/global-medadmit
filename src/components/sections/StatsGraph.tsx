@@ -8,11 +8,11 @@ import Reveal from "@/components/Reveal";
 const ringColors = ["#5b34f5", "#14b8a6", "#f59e0b", "#22c55e"];
 
 const countryBars = [
-  { name: "Uzbekistan", value: 92, color: "#5b34f5" },
-  { name: "Kyrgyzstan", value: 74, color: "#14b8a6" },
-  { name: "Georgia", value: 61, color: "#f59e0b" },
-  { name: "Russia", value: 80, color: "#ef4444" },
-  { name: "Kazakhstan", value: 55, color: "#3b82f6" },
+  { name: "Hungary", value: 90, color: "#5b34f5" },
+  { name: "Romania", value: 78, color: "#14b8a6" },
+  { name: "Ukraine", value: 72, color: "#f59e0b" },
+  { name: "Moldova", value: 60, color: "#ef4444" },
+  { name: "Latvia", value: 52, color: "#3b82f6" },
 ];
 
 /* Count-up number that runs once when scrolled into view */

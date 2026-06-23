@@ -7,6 +7,7 @@ import { countries } from "@/lib/data";
 import PageHeader from "@/components/PageHeader";
 import LeadForm from "@/components/LeadForm";
 import Reveal from "@/components/Reveal";
+import Flag from "@/components/Flag";
 
 export default function WorkVisaPage() {
   const { t } = useLang();
@@ -40,7 +41,7 @@ export default function WorkVisaPage() {
                       <Image src={c.image} alt={c.name} fill sizes="50vw" className="object-cover transition duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent" />
                       <span className="absolute bottom-2 left-3 inline-flex items-center gap-1.5 font-bold text-white">
-                        <span className="text-xl">{c.flag}</span> {c.name}
+                        <Flag code={c.code} name={c.name} className="h-4 w-6" /> {c.name}
                       </span>
                     </div>
                     <p className="p-4 text-sm text-ink-500">{c.blurb}</p>

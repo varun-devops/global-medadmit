@@ -2,7 +2,6 @@ import Hero from "@/components/sections/Hero";
 import StairSteps from "@/components/sections/StairSteps";
 import Services from "@/components/sections/Services";
 import FeatureRows from "@/components/sections/FeatureRows";
-import Coaching from "@/components/sections/Coaching";
 import StatsGraph from "@/components/sections/StatsGraph";
 import CountriesPreview from "@/components/sections/CountriesPreview";
 import UniversitiesPreview from "@/components/sections/UniversitiesPreview";
@@ -24,7 +23,6 @@ export default function Home() {
       <StairSteps />
       <Services />
       <FeatureRows />
-      <Coaching />
       <StatsGraph />
       <CountriesPreview />
       <UniversitiesPreview />

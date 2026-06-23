@@ -174,6 +174,70 @@ body {
   background-size: 14px 14px;
 }
 
+/* ---------- Triangle / low-poly geometric background (brand-colored) ---------- */
+/* Light variant — for hero on white pages. Triangles sit on the right edge. */
+.tri-bg-light {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(700px 460px at 100% 0%, rgba(140, 100, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+}
+
+/* Dark variant — for footer / CTA bands. Deep navy with a violet glow. */
+.tri-bg-dark {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(800px 520px at 100% 0%, rgba(140, 100, 255, 0.28), transparent 60%),
+    radial-gradient(600px 400px at 0% 100%, rgba(91, 52, 245, 0.22), transparent 55%),
+    linear-gradient(150deg, #161538 0%, #1d0f52 55%, #2f1980 100%);
+}
+
+/*
+ * Decorative low-poly triangle mesh, rendered as a CSS background image so it
+ * stays crisp at any size and needs no extra DOM. Drop a <span class="tri-mesh" />
+ * (or tri-mesh-light on dark backgrounds) inside a `relative` container.
+ */
+.tri-mesh,
+.tri-mesh-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 46px 46px, 46px 46px, 92px 92px;
+  background-position: 0 0, 23px 23px, 0 0;
+  opacity: 0.85;
+}
+.tri-mesh {
+  /* violet triangles for light backgrounds */
+  background-image:
+    linear-gradient(45deg, rgba(91, 52, 245, 0.12) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(140, 100, 255, 0.10) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(173, 142, 255, 0.07) 25%, transparent 25%);
+}
+.tri-mesh-light {
+  /* white/violet triangles for dark backgrounds */
+  background-image:
+    linear-gradient(45deg, rgba(173, 142, 255, 0.18) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(114, 69, 255, 0.16) 25%, transparent 25%);
+}
+
+/* A single sharp triangle accent (use multiple, positioned with utilities). */
+.tri {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 0 1.6rem 2.7rem 1.6rem;
+  border-color: transparent transparent currentColor transparent;
+}
+.tri-sm { border-width: 0 1rem 1.7rem 1rem; }
+.tri-lg { border-width: 0 2.4rem 4rem 2.4rem; }
+.tri-down { transform: rotate(180deg); }
+
 .float-badge {
   background: white;
   border-radius: 1rem;

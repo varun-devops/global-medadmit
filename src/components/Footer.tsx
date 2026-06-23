@@ -5,14 +5,17 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { contactInfo } from "@/lib/data";
 import Logo from "./Logo";
+import TriangleField from "./TriangleField";
 
 export default function Footer() {
   const { t } = useLang();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink-950 text-ink-200">
-      <div className="container-x grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="tri-bg-dark relative text-ink-200">
+      <span className="tri-mesh-light right-0 top-0 hidden h-full w-1/2 opacity-60 md:block" aria-hidden />
+      <TriangleField tone="dark" className="right-0 top-0 hidden h-2/3 w-1/2 opacity-70 lg:block" />
+      <div className="container-x relative grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
           <Logo size={48} light big tagline />
@@ -41,7 +44,7 @@ export default function Footer() {
               { href: "/countries", label: t.nav.countries },
               { href: "/universities", label: t.nav.universities },
               { href: "/gallery", label: t.nav.gallery },
-              { href: "/events", label: t.nav.events },
+              { href: "/team", label: t.nav.team },
             ].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="text-ink-300 transition hover:text-brand-400">

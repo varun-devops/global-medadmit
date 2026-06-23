@@ -6,6 +6,7 @@ import { ArrowRight, BadgeCheck, CalendarDays, Languages } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { universities } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import Flag from "@/components/Flag";
 
 export default function UniversitiesPreview() {
   const { t } = useLang();
@@ -25,6 +26,7 @@ export default function UniversitiesPreview() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((u, i) => (
             <Reveal key={u.slug} delay={i * 0.05}>
+              <Link href={`/universities/${u.slug}`} className="block h-full">
               <article className="card group h-full overflow-hidden transition hover:-translate-y-1">
                 <div className="relative h-44 overflow-hidden">
                   <Image
@@ -34,8 +36,8 @@ export default function UniversitiesPreview() {
                     sizes="(max-width:768px) 100vw, 33vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-ink-800">
-                    {u.flag} {u.country}
+                  <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-ink-800">
+                    <Flag code={u.code} name={u.country} className="h-3 w-4" /> {u.country}
                   </span>
                 </div>
                 <div className="p-5">
@@ -61,6 +63,7 @@ export default function UniversitiesPreview() {
                   </div>
                 </div>
               </article>
+              </Link>
             </Reveal>
           ))}
         </div>

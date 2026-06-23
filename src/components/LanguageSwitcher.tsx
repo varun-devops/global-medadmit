@@ -5,6 +5,7 @@ import { Globe, Check, ChevronDown } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
 import { LANGS } from "@/lib/i18n/dictionaries";
 import { cn } from "@/lib/utils";
+import Flag from "./Flag";
 
 export default function LanguageSwitcher({ light = false }: { light?: boolean }) {
   const { lang, setLang } = useLang();
@@ -34,7 +35,7 @@ export default function LanguageSwitcher({ light = false }: { light?: boolean })
         aria-label="Change language"
       >
         <Globe className="h-4 w-4" />
-        <span className="hidden sm:inline">{current.flag}</span>
+        <Flag code={current.cc} name={current.label} className="hidden h-3.5 w-5 sm:inline-block" />
         <span className="hidden md:inline">{current.label}</span>
         <ChevronDown className={cn("h-3.5 w-3.5 transition", open && "rotate-180")} />
       </button>
@@ -51,7 +52,7 @@ export default function LanguageSwitcher({ light = false }: { light?: boolean })
               className="flex w-full items-center justify-between px-3.5 py-2.5 text-sm text-ink-700 transition hover:bg-brand-50"
             >
               <span className="flex items-center gap-2.5">
-                <span className="text-base">{l.flag}</span>
+                <Flag code={l.cc} name={l.label} className="h-3.5 w-5" />
                 {l.label}
               </span>
               {l.code === lang && <Check className="h-4 w-4 text-brand-600" />}

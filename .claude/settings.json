@@ -15,7 +15,17 @@
       "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://example.supabase.co\" NEXT_PUBLIC_SUPABASE_ANON_KEY=\"dummy\" npm run build)",
       "Bash(echo \"build exit: $?\")",
       "Bash(npm audit *)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(python -c \" *)",
+      "Bash(python -c ' *)",
+      "PowerShell(python -c \"from pypdf import PdfReader; r=PdfReader\\(r'd:\\\\websitem\\\\Consulting\\\\brosura_umfst_2024_EN.pdf'\\); open\\(r'd:\\\\websitem\\\\Consulting\\\\_brochure_dump.txt','w',encoding='utf-8'\\).write\\(chr\\(10\\).join\\([f'===== PAGE {i+1} ====='+chr\\(10\\)+\\(p.extract_text\\(\\) or ''\\) for i,p in enumerate\\(r.pages\\)]\\)\\); print\\('PAGES', len\\(r.pages\\)\\)\")",
+      "Read(//c/Program Files/Python312/**)",
+      "Bash(\"/c/Program Files/Python312/python.exe\" --version)",
+      "Bash('/c/Program Files/Python312/python.exe' -c ' *)",
+      "PowerShell($env:PORT=3137; $p = Start-Process npm -ArgumentList \"run\",\"dev\" -PassThru -RedirectStandardOutput dev_out.log -RedirectStandardError dev_err.log -NoNewWindow; Start-Sleep -Seconds 14; try { $codes = @\\(\\); foreach \\($u in @\\(\"http://localhost:3137/\",\"http://localhost:3137/universities\",\"http://localhost:3137/universities/umfst-targu-mures\",\"http://localhost:3137/universities/umfst-targu-mures/faculties\",\"http://localhost:3137/universities/umfst-targu-mures/student-life\",\"http://localhost:3137/universities/bogomolets-nmu\"\\)\\) { try { $r = Invoke-WebRequest $u -UseBasicParsing -TimeoutSec 20; $codes += \"$\\($r.StatusCode\\) $u\" } catch { $codes += \"ERR $\\($_.Exception.Message\\) $u\" } }; $codes } finally { Stop-Process -Id $p.Id -Force; Get-Process -Name node -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue })"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

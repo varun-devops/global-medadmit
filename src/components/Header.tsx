@@ -48,6 +48,7 @@ export default function Header() {
     { href: "/work-visa", label: t.nav.workVisa },
     { href: "/gallery", label: t.nav.gallery },
     { href: "/events", label: t.nav.events },
+    { href: "/team", label: t.nav.team },
     { href: "/contact", label: t.nav.contact },
   ];
 
