@@ -14,8 +14,7 @@ export default function SeoIntro() {
       <div className="container-x grid items-center gap-12 lg:grid-cols-2">
         <Reveal>
           <div className="relative mx-auto max-w-md">
-            <div className="blob -left-6 -top-6 h-28 w-28 bg-brand-100" />
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] shadow-card">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-card">
               <Image
                 src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
                 alt="Medical students studying abroad"

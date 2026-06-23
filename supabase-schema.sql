@@ -45,7 +45,13 @@ drop policy if exists "profiles_admin_all" on public.profiles;
 create policy "profiles_admin_all" on public.profiles
   for select using (public.is_admin());
 
--- Auto-create a profile row when a new auth user signs up
+-- The email that should automatically become an admin on sign-up.
+-- Change this if you want a different default admin address.
+--   Default admin login → email: admin@globera.com
+-- (You choose the password when you create the user — see step at bottom.)
+
+-- Auto-create a profile row when a new auth user signs up.
+-- If the email matches the default admin address, grant the admin role.
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -53,16 +59,22 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, full_name, phone)
+  insert into public.profiles (id, full_name, phone, role)
   values (
     new.id,
     coalesce(new.raw_user_meta_data->>'full_name', ''),
-    coalesce(new.raw_user_meta_data->>'phone', '')
+    coalesce(new.raw_user_meta_data->>'phone', ''),
+    case when lower(new.email) = 'admin@globera.com' then 'admin' else 'student' end
   )
-  on conflict (id) do nothing;
+  on conflict (id) do update
+    set role = case when lower(new.email) = 'admin@globera.com' then 'admin' else public.profiles.role end;
   return new;
 end;
 $$;
+
+-- Promote the default admin email even if the account already exists.
+update public.profiles set role = 'admin'
+where id in (select id from auth.users where lower(email) = 'admin@globera.com');
 
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
@@ -193,9 +205,24 @@ create policy "gallery_storage_delete" on storage.objects
 
 
 -- =====================================================================
--- AFTER you create your own account via the website /signup page,
--- promote yourself to admin by running (replace the email):
+-- DEFAULT ADMIN ACCOUNT — one-time setup
+-- ---------------------------------------------------------------------
+-- 1) In the Supabase Dashboard → Authentication → Users → "Add user"
+--      Email:    admin@globera.com
+--      Password: <choose a strong password>     ← this becomes your admin login
+--      ✔ Auto Confirm User
+--    (Email + password is the only secret; we never hardcode it in code.)
 --
+-- 2) Re-run this whole schema (or just the UPDATE above). The trigger and the
+--    promote-statement set that account's role to 'admin' automatically.
+--
+-- 3) Log in at  /admin/login  with admin@globera.com and your password.
+--
+-- Students simply use /signup and /login — they get the 'student' role and
+-- land on /dashboard. Only admin@globera.com (or anyone you later promote)
+-- can open the /admin panel.
+--
+-- To promote any other existing user to admin later:
 --   update public.profiles set role = 'admin'
 --   where id = (select id from auth.users where email = 'you@example.com');
 -- =====================================================================

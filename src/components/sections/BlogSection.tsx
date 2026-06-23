@@ -6,7 +6,7 @@ import { useLang } from "@/lib/i18n/LanguageProvider";
 import Reveal from "@/components/Reveal";
 
 const images = [
-  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+  "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80",
   "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
   "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&q=80",
 ];

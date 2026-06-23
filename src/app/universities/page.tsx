@@ -8,13 +8,17 @@ import { universities } from "@/lib/data";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import Flag from "@/components/Flag";
+import StudentCorner from "@/components/StudentCorner";
 
 export default function UniversitiesPage() {
   const { t } = useLang();
 
   return (
     <>
-      <PageHeader title={t.universities.title} subtitle={t.universities.subtitle} />
+      <div className="relative">
+        <PageHeader title={t.universities.title} subtitle={t.universities.subtitle} />
+        <StudentCorner position="bottom-right" />
+      </div>
       <section className="py-16">
         <div className="container-x grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {universities.map((u, i) => (

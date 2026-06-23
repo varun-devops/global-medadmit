@@ -81,7 +81,7 @@ export const countries: Country[] = [
     flag: "🇲🇪",
     type: ["student", "work"],
     blurb: "Beautiful Adriatic nation offering European medical study and sponsored work-visa opportunities.",
-    image: "https://images.unsplash.com/photo-1591805856846-fd8b66e76401?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
   },
   {
     slug: "albania",
@@ -90,7 +90,7 @@ export const countries: Country[] = [
     flag: "🇦🇱",
     type: ["student", "work"],
     blurb: "An emerging, budget-friendly European destination with English-medium medicine and a fast-growing job market.",
-    image: "https://images.unsplash.com/photo-1568797629192-789acf8e4df3?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80",
   },
 ];
 
@@ -191,7 +191,7 @@ export const universities: University[] = [
     medium: "English",
     recognition: ["NMC", "WHO"],
     blurb: "A renowned medical university in Cluj-Napoca, popular with international students.",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80",
   },
   {
     slug: "nicolae-testemitanu",
@@ -251,7 +251,7 @@ export const universities: University[] = [
     medium: "English",
     recognition: ["WHO"],
     blurb: "Montenegro's main medical faculty, set on the scenic Adriatic coast in Podgorica.",
-    image: "https://images.unsplash.com/photo-1591805856846-fd8b66e76401?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
   },
   {
     slug: "tirana-medicine",
@@ -263,7 +263,7 @@ export const universities: University[] = [
     medium: "English",
     recognition: ["WHO"],
     blurb: "Albania's dedicated medical university in the capital, Tirana, with growing international intake.",
-    image: "https://images.unsplash.com/photo-1568797629192-789acf8e4df3?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80",
   },
 ];
 

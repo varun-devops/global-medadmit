@@ -11,7 +11,7 @@ import { createClient } from "@supabase/supabase-js";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { full_name, phone, email, interest, message, source } = body || {};
+    const { full_name, phone, email, interest, message, source, user_id } = body || {};
 
     if (!full_name?.trim() || !phone?.trim()) {
       return NextResponse.json({ error: "Name and phone are required." }, { status: 400 });
@@ -32,6 +32,9 @@ export async function POST(req: Request) {
       interest: interest === "work" ? "work" : "study",
       message: message?.trim() || null,
       source: source === "brochure" ? "brochure" : "website",
+      // Link to the student's account when submitted while logged in, so it
+      // shows up in their dashboard. Anonymous submissions leave this null.
+      user_id: typeof user_id === "string" && user_id ? user_id : null,
     });
 
     if (error) {

@@ -22,7 +22,7 @@ export default function SignupPage() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,
         options: {
@@ -30,11 +30,19 @@ export default function SignupPage() {
         },
       });
       if (error) throw error;
-      toast.success("Account created! You can now sign in.");
-      router.push("/dashboard");
+
+      // If the project requires email confirmation, there is no active session
+      // yet — tell the user to confirm before signing in.
+      if (!data.session) {
+        toast.success("Account created! Check your email to confirm, then sign in.");
+        router.push("/login");
+      } else {
+        toast.success("Account created!");
+        router.push("/dashboard");
+      }
       router.refresh();
-    } catch (err: any) {
-      toast.error(err?.message || "Signup failed");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Signup failed");
     } finally {
       setLoading(false);
     }

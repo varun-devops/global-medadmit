@@ -22,11 +22,18 @@ function LoginInner() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       toast.success("Welcome back!");
-      const redirect = params.get("redirect") || "/dashboard";
-      router.push(redirect);
+
+      // Admins go to the panel; students to their dashboard.
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", data.user.id)
+        .single();
+      const fallback = profile?.role === "admin" ? "/admin" : "/dashboard";
+      router.push(params.get("redirect") || fallback);
       router.refresh();
     } catch (err: any) {
       toast.error(err?.message || "Login failed");
@@ -71,6 +78,11 @@ function LoginInner() {
         {t.auth.noAccount}{" "}
         <Link href="/signup" className="font-semibold text-brand-700 hover:underline">
           {t.auth.signUp}
+        </Link>
+      </p>
+      <p className="mt-2 text-center text-xs text-ink-400">
+        <Link href="/admin/login" className="hover:text-brand-600">
+          Admin login
         </Link>
       </p>
     </AuthCard>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Send, Loader2 } from "lucide-react";
 import { useLang } from "@/lib/i18n/LanguageProvider";
+import { useAuth } from "@/lib/auth/AuthProvider";
 
 export default function LeadForm({
   defaultInterest = "study",
@@ -15,6 +16,7 @@ export default function LeadForm({
   onSuccess?: () => void;
 }) {
   const { t } = useLang();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     full_name: "",
@@ -44,6 +46,7 @@ export default function LeadForm({
           interest: form.interest,
           message: form.message.trim() || null,
           source,
+          user_id: user?.id || null,
         }),
       });
       if (!res.ok) throw new Error("Request failed");

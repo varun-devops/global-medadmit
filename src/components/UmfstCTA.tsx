@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { MessageCircle, Loader2, Send } from "lucide-react";
 import { contactInfo } from "@/lib/data";
+import { useAuth } from "@/lib/auth/AuthProvider";
 import TriangleField from "@/components/TriangleField";
 
 /**
@@ -23,6 +24,7 @@ export default function UmfstCTA({
   heading?: string;
   sub?: string;
 }) {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ full_name: "", phone: "", email: "", message: "" });
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -50,6 +52,7 @@ export default function UmfstCTA({
           interest: "study",
           message: `[${context}] ${form.message.trim()}`.trim(),
           source: "brochure",
+          user_id: user?.id || null,
         }),
       });
       if (!res.ok) throw new Error("Request failed");

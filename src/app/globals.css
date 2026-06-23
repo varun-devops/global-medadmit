@@ -63,6 +63,21 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+}
+
+/* Simpler, calmer headings for a consulting tone:
+   normal letter-spacing, balanced weights (not ultra-bold everywhere). */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* The marketing pages use `font-extrabold` (800) almost everywhere, which reads
+   heavy / "template-y". Soften it site-wide to a restrained 700 so headings feel
+   like a professional consultancy rather than an AI demo. One change, no churn. */
+.font-extrabold {
+  font-weight: 700 !important;
 }
 
 /* ---------- Layout ---------- */
@@ -116,11 +131,13 @@ body {
 .btn-ghost-white:hover { background: rgba(255,255,255,0.24); }
 
 /* ---------- Cards ---------- */
+/* Flat, borderless cards — no AI-looking outline or heavy drop shadow.
+   A subtle elevation appears only on hover for interactive cards. */
 .card {
   background: white;
-  border-radius: 1.25rem;
-  border: 1px solid var(--color-ink-100);
-  box-shadow: var(--shadow-card);
+  border-radius: 1rem;
+  border: 0;
+  box-shadow: 0 1px 2px rgb(22 21 56 / 0.04);
 }
 
 .section-label {
@@ -128,18 +145,16 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-brand-600);
-  background: var(--color-brand-50);
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
 }
 
 /* ---------- Backgrounds & decoration ---------- */
+/* Plain near-white band instead of the violet gradient mesh. */
 .soft-section {
-  background: linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+  background: var(--color-ink-50);
 }
 
 /* violet gradient kept for auth + 404 */

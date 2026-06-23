@@ -17,7 +17,7 @@ type GalleryItem = {
 
 // Fallback images shown when the gallery table is empty / unconfigured.
 const fallback: GalleryItem[] = [
-  { id: "f1", title: "Campus Visit", caption: "University tour with students", image_url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80" },
+  { id: "f1", title: "Campus Visit", caption: "University tour with students", image_url: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80" },
   { id: "f2", title: "Counseling Session", caption: "Personalized guidance", image_url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" },
   { id: "f3", title: "Student Send-off", caption: "Departure celebration", image_url: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80" },
   { id: "f4", title: "Seminar", caption: "MBBS abroad awareness", image_url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" },

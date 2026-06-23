@@ -20,7 +20,7 @@ export default function WhyUs() {
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {t.why.items.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.05}>
-              <div className="flex h-full items-start gap-3.5 rounded-2xl border border-ink-100 bg-gradient-to-br from-white to-brand-50/40 p-5">
+              <div className="flex h-full items-start gap-3.5 rounded-xl bg-ink-50 p-5">
                 <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-brand-600" />
                 <div>
                   <h3 className="font-bold text-ink-900">{item.title}</h3>

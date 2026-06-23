@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Inbox, Images, CalendarDays, Home, LogOut, Loader2, ShieldAlert } from "lucide-react";
+import { LayoutDashboard, Inbox, Images, CalendarDays, Home, LogOut, Loader2, ShieldAlert, GraduationCap } from "lucide-react";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/Logo";
@@ -11,6 +11,7 @@ import Logo from "@/components/Logo";
 const navItems = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard },
   { href: "/admin/queries", label: "Student Queries", icon: Inbox },
+  { href: "/admin/students", label: "Registered Students", icon: GraduationCap },
   { href: "/admin/gallery", label: "Gallery", icon: Images },
   { href: "/admin/events", label: "Events", icon: CalendarDays },
 ];
@@ -20,9 +21,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
 
+  // The admin login page renders without the gated chrome.
+  const isLoginPage = pathname === "/admin/login";
+
   useEffect(() => {
-    if (!loading && !user) router.replace("/login?redirect=/admin");
-  }, [loading, user, router]);
+    if (isLoginPage) return;
+    if (!loading && !user) router.replace("/admin/login");
+  }, [loading, user, router, isLoginPage]);
+
+  if (isLoginPage) return <>{children}</>;
 
   if (loading) {
     return (
@@ -39,7 +46,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <ShieldAlert className="mx-auto h-12 w-12 text-gold-500" />
           <h1 className="mt-4 text-xl font-extrabold text-ink-900">Admin access required</h1>
           <p className="mt-2 text-ink-500">Your account doesn&apos;t have admin privileges.</p>
-          <Link href="/" className="btn btn-primary mt-5">Back to site</Link>
+          <div className="mt-5 flex justify-center gap-3">
+            <Link href="/admin/login" className="btn btn-primary">Admin login</Link>
+            <Link href="/" className="btn btn-outline">Back to site</Link>
+          </div>
         </div>
       </div>
     );

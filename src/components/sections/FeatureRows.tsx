@@ -35,9 +35,7 @@ export default function FeatureRows() {
               {/* Image side with floating badge */}
               <Reveal className={reversed ? "lg:order-2" : ""}>
                 <div className="relative mx-auto max-w-md">
-                  <div className="dotgrid absolute -left-5 -top-5 h-20 w-24 text-ink-200" />
-                  <div className="blob -right-6 -bottom-6 h-28 w-28 bg-brand-100" />
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] shadow-card">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-card">
                     <Image
                       src={images[i]}
                       alt={row.badge}

@@ -21,9 +21,6 @@ export default function StairSteps() {
 
   return (
     <section className="relative overflow-hidden soft-section py-20">
-      {/* dotted "world map" texture */}
-      <div className="dotgrid pointer-events-none absolute inset-0 text-ink-200 opacity-40" />
-
       <div className="container-x relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="section-label">{t.stairSteps.label}</span>
